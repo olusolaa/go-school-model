@@ -1,10 +1,18 @@
 package model
 
+import "fmt"
+
 type Teacher struct {
 	Staff
-	course Course
+	Course Course
 }
 
-//func (Teacher) gradeStudent(teacher Teacher, course Course, student Student)  {
-//	if
-//}
+func (teacher Teacher) GradeStudent(student *Student, score int)  {
+	for i, course := range student.Courses {
+		if teacher.Course.Name == course.Name && teacher.Course.Class == course.Class{
+			student.Courses[i].Score = score
+			return
+		}
+	}
+	fmt.Printf("student doe not offer %v \n", teacher.Course)
+}
